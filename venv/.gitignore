@@ -1,6 +1,0 @@
-echo "venv/
-__pycache__/
-.pytest_cache/
-.env
-allure-results/
-*.log" > .gitignore
