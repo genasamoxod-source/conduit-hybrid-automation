@@ -1,6 +1,7 @@
 import pytest
 import os
 from api_helpers.auth_helper import AuthHelper
+from api_helpers.create_arc_helper import CreateArc
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
@@ -16,6 +17,7 @@ def auth_token():
     
     token = auth.login(email, password)
     return token
+
 
 @pytest.fixture
 def browser_logged_in(auth_token):
