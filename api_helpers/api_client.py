@@ -20,3 +20,7 @@ class ApiClient:
     def get(self,endpoint,params=None):
         url = f'{self.base_url}{endpoint}'
         return self.session.get(url, params=params)
+    
+    def delete( self,endpoint,params):
+        url = f'{self.base_url}{endpoint}{params}'
+        return self.session.delete(url)

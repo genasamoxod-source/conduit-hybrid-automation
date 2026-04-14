@@ -1,7 +1,7 @@
 import pytest
 import os
 from api_helpers.auth_helper import AuthHelper
-from api_helpers.create_arc_helper import CreateArc
+from api_helpers.create_arc_helper import ArticlesHelper
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
