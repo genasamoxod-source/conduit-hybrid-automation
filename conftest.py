@@ -5,9 +5,9 @@ from api_helpers.create_arc_helper import ArticlesHelper
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.firefox.service import Service as ChromefoxService
+from selenium.webdriver.chrome.service import Service as ChromefoxService
 import time
 
 @pytest.fixture(scope="session")
