@@ -47,8 +47,8 @@ def browser_logged_in(auth_token):
     time.sleep(2)
 
     # Обновляем страницу — и вуаля, ты залогинен!
-    driver.refresh()
+    driver.get(f"{os.getenv('BASE_URL')}/@valerick")
     
-    time.sleep(2)
+    time.sleep(5)
     yield driver
     driver.quit()

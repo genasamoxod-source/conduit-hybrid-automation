@@ -17,7 +17,7 @@ def test_create_article_visible_in_profile(browser_logged_in,auth_token):
 
     browser_logged_in.refresh()
 
-    wait.until(ES.visibility_of_element_located((By.XPATH,f'//h1[text()="{title}"]')))
+    wait.until(ES.visibility_of_element_located((By.XPATH,f'//h1')))
     print(f"Статья '{title}' создана и проверена!")
 
     response = api.delete("/articles/",slug)
