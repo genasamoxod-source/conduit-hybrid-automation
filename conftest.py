@@ -6,8 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
 from selenium.webdriver.firefox.options import Options
-from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.service import Service as ChromefoxService
 import time
 
 @pytest.fixture(scope="session")
@@ -25,7 +25,7 @@ def auth_token():
 def browser_logged_in(auth_token):
     # path = r"C:\Users\genas\.wdm\drivers\geckodriver\win64\v0.36.0\geckodriver.exe"
     # service = Service(executable_path=path)
-    service = FirefoxService(GeckoDriverManager().install())
+    service = ChromefoxService(ChromeDriverManager().install())
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--width=1920')
