@@ -6,7 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
 from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 @pytest.fixture(scope="session")
 def auth_token():
@@ -21,8 +22,7 @@ def auth_token():
 
 @pytest.fixture
 def browser_logged_in(auth_token):
-    path = r"C:\Users\genas\.wdm\drivers\geckodriver\win64\v0.36.0\geckodriver.exe"
-    service = Service(executable_path=path)
+    service = FirefoxService(GeckoDriverManager().install())
     options = Options()
     options.add_argument('--headless')
     options.page_load_strategy = 'eager'
