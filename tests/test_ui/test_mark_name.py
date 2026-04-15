@@ -6,6 +6,6 @@ import time
 
 def test_user_is_logged_in(browser_logged_in):
     wait = WebDriverWait(browser_logged_in,20)
-    profile_link = wait.until(ES.visibility_of_element_located((By.XPATH, '//a[contains(@href, "/@")]')))
+    profile_link = wait.until(ES.presence_of_element_located((By.XPATH, '//a[contains(@href, "/@")]')))
     assert profile_link.is_displayed()
     print(f"Успешно залогинены под: {profile_link.text}")
