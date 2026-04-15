@@ -28,6 +28,8 @@ def browser_logged_in(auth_token):
     service = ChromefoxService(ChromeDriverManager().install())
     options = Options()
     options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--width=1920')
     options.add_argument('--height=1080')
     options.page_load_strategy = 'eager'
@@ -36,7 +38,10 @@ def browser_logged_in(auth_token):
     
     # "Вшиваем" токен в память браузера (localStorage)
     # Большинство современных сайтов (как Conduit) хранят токен там
-    script = f"window.localStorage.setItem('id_token', '{auth_token}');"
+    script = f"""
+    window.localStorage.setItem('id_token', '{auth_token}');
+    window.sessionStorage.setItem('id_token', '{auth_token}')"""
+
     driver.execute_script(script)
 
     time.sleep(2)
