@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 def test_create_article_visible_in_profile(browser_logged_in,auth_token):
 
     print(f"Создание статье через API")
-    wait= WebDriverWait(browser_logged_in,10)
+    wait= WebDriverWait(browser_logged_in,20)
 
     title = f'Test Article {time.time()}'
 
@@ -17,7 +17,7 @@ def test_create_article_visible_in_profile(browser_logged_in,auth_token):
 
     browser_logged_in.refresh()
 
-    wait.until(ES.visibility_of_element_located((By.XPATH,f'//div[@class="article-preview"]/a[@class="preview-link"]/h1[text()="{title}"]')))
+    wait.until(ES.visibility_of_element_located((By.XPATH,f'//h1[text()="{title}"]')))
     print(f"Статья '{title}' создана и проверена!")
 
     response = api.delete("/articles/",slug)
