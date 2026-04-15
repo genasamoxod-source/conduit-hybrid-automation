@@ -14,6 +14,7 @@ class ApiClient:
     
     def post(self,endpoint,data=None):
         url = f'{self.base_url}{endpoint}'
+        print(f"DEBUG: Requesting URL: {url}") 
         response = self.session.post(url,json=data)
         return response
     
