@@ -19,6 +19,6 @@ jobs:
       env: # Прокидываем секреты из GitHub в тесты
         USER_EMAIL: ${{ secrets.USER_EMAIL }}
         USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        API_URL: https://learnwebdriverio.com
+        API_URL: https://conduit-api.learnwebdriverio.com/api
         BASE_URL: https://learnwebdriverio.com
       run: pytest
