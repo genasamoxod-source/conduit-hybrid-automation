@@ -31,7 +31,7 @@ def browser_logged_in(auth_token):
     options.add_argument('--width=1920')
     options.add_argument('--height=1080')
     options.page_load_strategy = 'eager'
-    driver = webdriver.Firefox(service=service, options = options)
+    driver = webdriver.Chrome(service=service, options = options)
     driver.get(os.getenv('BASE_URL')) # Сначала заходим на сайт
     
     # "Вшиваем" токен в память браузера (localStorage)
