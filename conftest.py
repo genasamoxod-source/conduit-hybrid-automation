@@ -24,6 +24,7 @@ def browser_logged_in(auth_token):
     path = r"C:\Users\genas\.wdm\drivers\geckodriver\win64\v0.36.0\geckodriver.exe"
     service = Service(executable_path=path)
     options = Options()
+    options.add_argument('--headless')
     options.page_load_strategy = 'eager'
     driver = webdriver.Firefox(service=service, options = options)
     driver.get(os.getenv('BASE_URL')) # Сначала заходим на сайт
